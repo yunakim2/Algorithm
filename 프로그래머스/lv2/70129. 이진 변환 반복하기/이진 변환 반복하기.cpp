@@ -22,7 +22,7 @@ vector<int> solution(string s) {
     if (s == "1") return {0, 0};
     int num = 0;
     int cnt = 0;
-    while(num < 6) {
+    while(true) {
         string temp;
         for (auto &ss : s) {
             if (ss == '0') {
