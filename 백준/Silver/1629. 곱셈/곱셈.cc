@@ -1,18 +1,22 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
+
+int ans;
 long long A, B, C;
-long long go(long long a, long long b) {
-  if (b == 1) return a % C;
-  long long ret = go(a, b/2);
-  ret = (ret * ret) % C;
-  if (b % 2) ret = (ret * a) % C;
-  return ret;
+
+long long cal(int a, int cnt) {
+  if (cnt == 1) return a % C;
+  long long ret = cal(a, cnt/2);
+  ret = ret * ret % C;
+  if (cnt % 2 == 0) return ret;
+  return ret * a % C;
 }
+
 int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL); cout.tie(NULL);
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+
   cin >> A >> B >> C;
-  cout << go(A, B) << '\n';
-  return 0;
+  cout << cal(A, B);
 }
